@@ -14,3 +14,17 @@ TODO:
 - assign assignments
 - make main file
 - plan out base aspects of game
+
+Game plan:
+
+Roguelike games are extremely varied, but have several tropes in common with each other.
+- Single-player
+- Text-based (no graphics, instead game world is represented with terminal characters)
+- Simple plot ("Go here, kill this, retrieve treasure")
+- Permadeath
+- Turn-based
+- Randomly-generated dungeons
+- Emphasis on gameplay over graphics
+- Usually contains magic skills
+
+This should give you an idea what type of game this will be. Think text-based Diablo.
