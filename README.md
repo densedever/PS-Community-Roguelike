@@ -9,6 +9,7 @@ Team members:
 - Bonaventure Ace
 - Joshua Taylor
 - Henning Hoppe
+- Borjan Georgievski
 
 TODO:
 - assign assignments
