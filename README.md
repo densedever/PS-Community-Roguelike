@@ -1,6 +1,5 @@
 # PS-Community-Roguelike
 Just a playaround text game for practice. Made by n00bs, for n00bs!
-Written in Python 3.5.2
 
 Started October 14th, 2016
 
@@ -10,8 +9,10 @@ Team members:
 - Joshua Taylor
 - Henning Hoppe
 - Borjan Georgievski
+- Mujeeb Ishaq
 
 TODO:
+- agree on a programming language!
 - assign assignments
 - make main file
 - plan out base aspects of game
