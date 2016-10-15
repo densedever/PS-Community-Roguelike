@@ -23,15 +23,34 @@ struct map{
 				cout << game_map[x][y] << " ";
 			}
 			cout << endl;
-		}
-		
+		}	
 	}
-	
 }handle;
+
+
 
 int main(){
 	
-	handle.display_map();
+	char choice;
+	cout << "\n\t\t Welcome To Mission impossible Rogue !";
+	
+	while(true){
+		cin.ignore();
+		cout << "\n 1 )- Press S to Start game : ";
+		cout << "\n 2 )- Press Q to quit game  : ";
+		cout << "\n Your choice here : ";
+		choice = cin.get();
+		
+		if(choice == 's' || choice == 'S'){
+			system("cls");
+			handle.display_map();
+		}else if(choice == 'q' ||  choice == 'Q'){
+			exit(0);
+		}else{
+			cout << "\n Wrong key pressed";
+			continue;
+		}
+	}
 	
 	return 0;
 }
