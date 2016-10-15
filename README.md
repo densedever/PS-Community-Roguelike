@@ -13,10 +13,9 @@ Team members:
 - Mujeeb Ishaq
 
 TODO:
-- agree on a programming language!
+- plan out base aspects of game
 - assign assignments
 - make main file
-- plan out base aspects of game
 
 Game plan:
 
@@ -31,3 +30,11 @@ Roguelike games are extremely varied, but have several tropes in common with eac
 - Usually contains magic skills
 
 This should give you an idea what type of game this will be. Think text-based Diablo.
+
+Game will feature character creation at start. Just type in a name for now (?).
+
+Characters will obtain skills as user levels up. Can choose to use skills or not, providing simple implementation of a flexible class system.
+
+Need to make class for character. Separate file? Separate file.
+
+Main file is game.cpp.
