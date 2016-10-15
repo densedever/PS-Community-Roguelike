@@ -15,7 +15,6 @@ Team members:
 TODO:
 - plan out base aspects of game
 - assign assignments
-- make main file
 
 Game plan:
 
