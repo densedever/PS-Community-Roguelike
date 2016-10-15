@@ -5,10 +5,10 @@ Written in Python 3.5.2
 Started October 14th, 2016
 
 Team members:
-Dylan LaCoursiere (repo creator)
-Bonaventure Ace
-Joshua Taylor
-Henning Hoppe
+- Dylan LaCoursiere (repo creator)
+- Bonaventure Ace
+- Joshua Taylor
+- Henning Hoppe
 
 TODO:
 - assign assignments
