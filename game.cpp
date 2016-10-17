@@ -8,41 +8,28 @@ struct character {
 }ch;
 
 struct map{
-    // map's width and height. Used instead of hard-coded magic numbers. Easier to maintain.
-	const int width = 12;
-    const int height= 12;
-	char game_map[width][height] = {};
-    /*
-                            {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',},
-							{'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
-							{'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
-							{'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
-							{'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
-							{'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
-							{'#', '.', '.', '.', '.', '+', '+', '.', '.', '.', '.', '#',},
-							{'#', '.', '.', '.', '.', '/', '\\', '.', '.', '.', '.', '#',},
-							{'#', '.', '.', '.', '.', '|', '|', '.', '.', '.', '.', '#',},
-							{'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
-							{'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
-							{'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',},};
-    */
 	
-    void gen_map() {
-        for(int x=0; x<width; x++) {
-            for(int y=0; y<height; y++) {
-                game_map[x][y] = (
-                    x==0 && y==0 && x-1==width && y-1==height
-                )? '#': '.';
-            }
-        }
-    }
+	char game_map[12][12] = {{'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',},
+							 {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+							 {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+							 {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+							 {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+							 {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+							 {'#', '.', '.', '.', '.', '+', '+', '.', '.', '.', '.', '#',},
+							 {'#', '.', '.', '.', '.', '/', '\\', '.', '.', '.', '.', '#',},
+							 {'#', '.', '.', '.', '.', '|', '|', '.', '.', '.', '.', '#',},
+							 {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+							 {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+							 {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',},};
+	
 	void display_map(){
-		for(int x=0; x<width; ++x){
-			for(int y=0; y<height; ++y){
-				cout << game_map[x][y] << " "; // why is this space here?
+		// maybe we shouldn't use hard-coded values for the loops' upper bounds?
+		for(int x=0; x<12; ++x){
+			for(int y=0; y<12; ++y){
+				cout << game_map[x][y] << " ";
 			}
 			cout << endl;
-		}
+		}	
 	}
 	
 	void draw_character() {
@@ -60,40 +47,23 @@ int main(){
 	
 	char choice;
 	cout << "\n\t\t Welcome To Mission impossible Rogue !";
-    handle.gen_map();
-    
-    while(true){
-        cin.ignore();
-        cout << "\n 1 )- Press t/T to Start game : ";
-        cout << "\n 2 )- Press q/Q to quit game  : ";
-        cout << "\n Your choice here : ";
-        choice = cin.get();
-        
-        switch(choice) {
-            case 't':
-            case 'T':
-                draw_world(); break;
-            case 'q':
-            case 'Q':
-                exit(0); break;
-            // movement commands:
-            case 'w': // up
-            case 'W':
-                break;
-            case 'a': // left
-            case 'A':
-                break;
-            case 's': // down
-            case 'S':
-                break;
-            case 'd': // right
-            case 'D':
-                break;
-            default:
-                cout << "\n Wrong key pressed"; continue;
-        }
-    }
-    
-    return 0;
+	
+	while(true){
+		cin.ignore();
+		cout << "\n 1 )- Press S to Start game : ";
+		cout << "\n 2 )- Press Q to quit game  : ";
+		cout << "\n Your choice here : ";
+		choice = cin.get();
+		
+		if(choice == 's' || choice == 'S'){
+			draw_world();
+		}else if(choice == 'q' ||  choice == 'Q'){
+			exit(0);
+		}else{
+			cout << "\n Wrong key pressed";
+			continue;
+		}
+	}
+	
+	return 0;
 }
-
