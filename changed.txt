@@ -1,3 +1,88 @@
+borders and spaces: 
+#include <iostream>
+using namespace std;
+
+char b = 0xB1; //b for block
+char s = 0xFF; //s for space
+ 
+// character defined here 
+struct character {
+	
+	char body = '@';
+	int x = 6;
+	int y = 6;
+	
+}ch;
+
+//maybe map should be more broad ... 
+
+struct map{
+// 10 blocks space, 20 blocks border	
+	char game_map[25][100] = {{b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+							 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+							 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+							 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+							 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+							 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+							 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+							 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+							 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+/* created only 12 rows */	 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+							 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,},
+							 {b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, b, s, s, s, s, s, s, s, s, s, s,}
+							 };
+	
+
+
+	void display_map(){
+		// maybe we shouldn't use hard-coded values for the loops' upper bounds?
+		for(int x=0; x<25; ++x){
+			for(int y=0; y<100; ++y){
+				cout << game_map[x][y];
+			}
+			cout << endl;
+		}	
+	}
+	
+	void draw_character() {
+	//	game_map[ch.x][ch.y] = ch.body;
+	}
+
+}handle;
+
+void draw_world() {
+	system("cls");
+	handle.draw_character();
+	handle.display_map();
+}
+
+int main(){
+	
+	char choice;
+	cout << "\n\t\t Welcome To Mission impossible Rogue !";
+	
+	while(true){
+		cin.ignore();
+		cout << "\n 1 )- Press S to Start game : ";
+		cout << "\n 2 )- Press Q to quit game  : ";
+		cout << "\n Your choice here : ";
+		choice = cin.get();
+		
+		if(choice == 's' || choice == 'S'){
+			draw_world();
+		}else if(choice == 'q' ||  choice == 'Q'){
+			exit(0);
+		}else{
+			cout << "\n Wrong key pressed";
+			continue;
+		}
+	}
+	
+	return 0;
+}
+
+
+
 old:
 #include <iostream>
 using namespace std;
