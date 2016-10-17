@@ -61,39 +61,39 @@ int main(){
 	char choice;
 	cout << "\n\t\t Welcome To Mission impossible Rogue !";
     handle.gen_map();
-	
-	while(true){
-		cin.ignore();
-		cout << "\n 1 )- Press t/T to Start game : ";
-		cout << "\n 2 )- Press q/Q to quit game  : ";
-		cout << "\n Your choice here : ";
-		choice = cin.get();
-		
-		switch(choice) {
-			case 't':
-			case 'T':
-				draw_world(); break;
-			case 'q':
-			case 'Q':
-				exit(0); break;
+    
+    while(true){
+        cin.ignore();
+        cout << "\n 1 )- Press t/T to Start game : ";
+        cout << "\n 2 )- Press q/Q to quit game  : ";
+        cout << "\n Your choice here : ";
+        choice = cin.get();
+        
+        switch(choice) {
+            case 't':
+            case 'T':
+                draw_world(); break;
+            case 'q':
+            case 'Q':
+                exit(0); break;
             // movement commands:
-			case 'w': // up
-			case 'W':
+            case 'w': // up
+            case 'W':
                 break;
-			case 'a': // left
-			case 'A':
+            case 'a': // left
+            case 'A':
                 break;
-			case 's': // down
-			case 'S':
+            case 's': // down
+            case 'S':
                 break;
-			case 'd': // right
-			case 'D':
+            case 'd': // right
+            case 'D':
                 break;
-			default:
-				cout << "\n Wrong key pressed"; continue;
-		}
-	}
-	
-	return 0;
+            default:
+                cout << "\n Wrong key pressed"; continue;
+        }
+    }
+    
+    return 0;
 }
 
