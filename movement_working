@@ -1,0 +1,150 @@
+#include <iostream>
+#include <conio.h>
+#include <cstring>
+using namespace std;
+
+struct character {
+	char body = 0xDC;
+	int x = 4;
+	int y = 5;
+}ch;
+
+	const int rows = 12;
+	const int columns = 12;
+	
+struct map{
+	
+	char game_map[rows][columns] = {{'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',},
+						     {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+                             {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+                             {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+                             {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+                             {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+                             {'#', '.', '.', '.', '.', '_', '_', '.', '.', '.', '.', '#',},
+                             {'#', '.', '.', '.', '.', '|', '|', '.', '.', '.', '.', '#',},
+                             {'#', '.', '.', '.', '.', '|', '|', '.', '.', '.', '.', '#',},
+                             {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+                             {'#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#',},
+                             {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',},};
+    
+    void display_map(){
+        // maybe we shouldn't use hard-coded values for the loops' upper bounds?
+        for(int x=0; x<12; ++x){
+            for(int y=0; y<12; ++y){
+                cout << game_map[x][y] << " ";
+            }
+            cout << endl;
+        }    
+        
+    }
+    
+    void draw_character() {
+        game_map[ch.x][ch.y] = ch.body;
+    
+	}
+	
+    void move_up(){
+		system("cls");
+		int position = ch.x;
+		ch.body = game_map[ch.x--][ch.y];
+		game_map[position][ch.y] = '.';
+		display_map();
+	}
+	
+	void move_down(){
+		system("cls");
+		int position = ch.x;
+		ch.body = game_map[ch.x++][ch.y];
+		game_map[position][ch.y] = '.';
+		display_map();
+	}
+	
+	void move_left(){
+		system("cls");
+		int position = ch.y;
+		ch.body = game_map[ch.x][ch.y--];
+		game_map[ch.x][position] = '.';
+		display_map();
+	}
+	
+	void move_right(){
+		system("cls");
+		int position = ch.y;
+		ch.body = game_map[ch.x][ch.y++];
+		game_map[ch.x][position] = '.';
+		display_map();
+	}
+    
+}handle;
+
+void draw_world() {
+    system("cls");
+    handle.draw_character();
+    handle.display_map();
+}
+/*
+void show_instructions(){
+}
+*/
+int main() {
+    // intro message
+    cout << "\n\t\t Welcome To Mission impossible Rogue !" << endl
+         << "Start the game: y" << endl 
+         << "Quit: q" << endl;
+    /*
+    char instructions;
+    cout << "\n Press 'i' if you want to read the instructions !";
+    cin >> instructions;
+    if(instructions == 'i' || instructions == 'I'){
+    	show_instructions();
+	}
+    */
+    cin.ignore();
+    char start;  // user's choice to start game
+    char choice; // user's choice of action
+    
+    start = cin.get();
+    if(start == 'n' || start == 'N') {
+        exit(0);
+    } else {
+        
+        system("cls");
+        while(true) { // main game loop
+            draw_world();
+            cout << endl << ">What will you do?" << "\n q for quit. \n use WASD to play game."<< endl;
+           
+		    choice = getch();
+            
+            switch(choice) {
+                
+                case 'q': // quit
+                case 'Q':
+                    exit(0); 
+                    break;
+                
+                // movement commands:
+                case 'w': // up
+                case 'W':
+                	handle.move_up();
+                    break;
+                case 'a': // left
+                case 'A':
+                	handle.move_left();
+                    break;
+                case 's': // down
+                case 'S':
+                	handle.move_down();
+                    break;
+                case 'd': // right
+                case 'D':
+                	handle.move_right();
+                    break;
+                
+                default:
+                    cout << "\n Wrong key pressed";
+                    continue;    
+            }
+        }
+    }
+    return 0;
+}
